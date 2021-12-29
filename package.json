@@ -1,0 +1,15 @@
+{
+  "name": "api_node",
+  "version": "1.0.0",
+  "description": "API desenvolvida utilizando Node.js, o JavaScript no back-end!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
