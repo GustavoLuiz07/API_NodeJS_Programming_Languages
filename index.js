@@ -1,3 +1,4 @@
+
 const express = require('express')
 
 const server = express()
@@ -8,9 +9,9 @@ server.use(express.json())
 
 let languages = [
     {
-        "name": "Python", 
-        "creator": "Guido van Rossum",
-        "year": "1991"
+        "name": "JavaScript", 
+        "creator": "Brendan Eich",
+        "year": "1995"
     }
 ]                                                              //id inicial = 0
 
