@@ -9,9 +9,9 @@ server.use(express.json())
 
 let languages = [
     {
-        "name": "JavaScript", 
-        "creator": "Brendan Eich",
-        "year": "1995"
+        "name": "Python", 
+        "creator": "Guido van Rossum",
+        "year": "1991"
     }
 ]                                                              //id inicial = 0
 
@@ -41,7 +41,7 @@ server.post('/languages', (req, res) => {
 })
 
 
-//Desenvolvendo método de requisição http PUT - Atualizar uma linguagem
+//Desenvolvendo método de requisição http PUT - Atualizar totalmente uma linguagem
 
 server.put('/languages/:index', (req, res) => {
     const { index } = req.params
@@ -51,6 +51,22 @@ server.put('/languages/:index', (req, res) => {
 
     return res.json(languages)
 })
+
+
+//Desenvolvendo método de requisição http PATCH - Atualizar parcialmente uma linguagem
+
+server.patch('/languages/:index', (req, res) => {
+    const { index } = req.params
+    const { name, creator, year} = req.body 
+
+   const Language = languages[index]
+
+  if (name) languages[index] = {...Language, name}
+  if (creator) languages[index] = {...Language, creator}
+  if (year) languages[index] = {...Language, year}
+    
+    return res.json(languages)
+})  
 
 
 //Desenvolvendo método de requisição http DELETE - Deletar uma linguagem
@@ -66,4 +82,4 @@ server.delete('/languages/:index', (req, res) => {
 
 server.listen(3000, () => {
     console.log('O servidor está rodando...')
-})
+})  
